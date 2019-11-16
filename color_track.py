@@ -1,7 +1,7 @@
 import cv2, serial, time
 import numpy as np
 
-arduino = serial.Serial('COM5', 9600)
+#arduino = serial.Serial('COM5', 9600)
 time.sleep(2)
 
 cam = cv2.VideoCapture(0)
@@ -38,11 +38,11 @@ while True:
             rx = int(cx - width/2.0); ry = int(cy - width/2.0)
             cv2.rectangle(frame, (rx, ry), (rx + width, ry + width), (0, 255, 0), 4)
             dist_x, dist_y = cx-x//2, cy-y//2
-            if dist_x > margen: arduino.write(b'3') #print('derecha')
-            if dist_x < -margen: arduino.write(b'4') #print('izquierda')
-            if dist_y > margen: arduino.write(b'1') #print('abajo')
-            if dist_y < -margen: arduino.write(b'0') #print('arriba')
-            else: print('bkn')
+            #if dist_x > margen: arduino.write(b'3') #print('derecha')
+            #if dist_x < -margen: arduino.write(b'4') #print('izquierda')
+            #if dist_y > margen: arduino.write(b'1') #print('abajo')
+            #if dist_y < -margen: arduino.write(b'0') #print('arriba')
+            #else: print('bkn')
 
         except ValueError:
             pass
